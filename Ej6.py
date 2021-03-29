@@ -1,3 +1,5 @@
+import re
+
 def Ej6(string):
 	zero = string.split("1")[::-1]
 	len_zero = []
@@ -27,8 +29,12 @@ def Ej6(string):
 
 print("//-//-//-//-//-//-//-//-//-//-//\nEjercicio 1: \nTest case: 000100110\nReturn: Es formidable\n")
 string = str(input("Ingrese la secuencia: "))
-
-if Ej6(string):
-	print("Es formidable")
+val = re.findall("[0,1]+", string)
+if len(val)==1:
+	if Ej6(string):
+		print("Es formidable")
+	else:
+		print("No es formidable")
 else:
-	print("No es formidable")
+	print("Ingrese una secuencia valida")
+
