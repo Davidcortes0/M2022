@@ -1,6 +1,30 @@
 import re
 
-def Ej6(string):
+def Ej6(secuencias):
+	print("Secuencias formidables: ")
+	formidables = []
+	l = 0
+	index = -1
+	for i in secuencias:
+		val = re.findall("[0,1]+", i)
+		if len(val)==1:
+			if es_formidable(i):
+				l += 1
+				print(str(l) + ". " + i)
+				formidables.append(i)
+#			else:
+#				print(i + " no es formidable")
+#		else:
+#			print("La secuencia " + i + " no es valida")
+	if l>0:
+		index = int(input("Cual secuencia desea enviar: "))
+		while index<1 or l<index:
+			index = int(input("Ingrese un numero valido: "))
+		return (formidables[index-1],l)
+	else:
+		return ('',0)
+		
+def es_formidable(string):
 	zero = string.split("1")[::-1]
 	len_zero = []
 	temp_zero = 0
@@ -27,14 +51,7 @@ def Ej6(string):
 	
 	return flag_zero and flag_one
 
-print("//-//-//-//-//-//-//-//-//-//-//\nEjercicio 1: \nTest case: 000100110\nReturn: Es formidable\n")
-string = str(input("Ingrese la secuencia: "))
-val = re.findall("[0,1]+", string)
-if len(val)==1:
-	if Ej6(string):
-		print("Es formidable")
-	else:
-		print("No es formidable")
-else:
-	print("Ingrese una secuencia valida")
+print("Ejercicio 6:\nTest case:\nInput 1: 000100110 00 10 5 6\nInput 2: 2\nReturn: ('00',3)\n")
+string = str(input("Ingrese las secuencias separadas por un espacio : ")).split(" ")
+print(Ej6(string))
 
