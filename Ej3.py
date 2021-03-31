@@ -13,7 +13,7 @@ def Ej2(k,l,r):
   else:
     print("El k-esimo numero esta fuera del rango")
 
-print("Ejercicio 2: \nTest case: 2 10 20\nReturn: 9\n")
+print("Ejercicio 2: \nTest case: 2 10 20\nReturn: 12\n")
 var = tuple(input("Ingrese k,l,r separados por espacios: ").split())
 Ej2(*var)
 
