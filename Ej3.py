@@ -3,7 +3,7 @@ def Ej2(k,l,r):
   counter = 0
   for i in range(int(l),int(r)+1):
     for j in range(len(str(i))-1):
-      if not len(set(str(i)[j:j+2])) == 1:
+      if not len(set(str(i)[j:j+2])) == 1:#if not str(i)[j:j+1]==str(i)[j+1:j+2]:
         #print(set(str(i)[j:j+2]), " -> ", i)
         counter += 1
         if int(k) == counter:
@@ -13,7 +13,7 @@ def Ej2(k,l,r):
   else:
     print("El k-esimo numero esta fuera del rango")
 
-print("Ejercicio 2: \nTest case: 9 0 100\nReturn: 9\n")
+print("Ejercicio 2: \nTest case: 2 10 20\nReturn: 9\n")
 var = tuple(input("Ingrese k,l,r separados por espacios: ").split())
 Ej2(*var)
 
