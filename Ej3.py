@@ -14,8 +14,11 @@ def Ej2(k,l,r):
     print("El k-esimo numero esta fuera del rango")
 
 print("Ejercicio 2: \nTest case: 2 10 20\nReturn: 12\n")
-var = tuple(input("Ingrese k,l,r separados por espacios: ").split())
-Ej2(*var)
+var = tuple(input("Ingrese k,l,r separados por espacios (respectivamente): ").split())
+if var[1]<=var[2]:
+	Ej2(*var)
+else:
+	print("Ingrese un intervalo valido")
 
 '''
 Un número es variado si no tiene dos dígitos iguales consecutivos en su representación en
