@@ -41,6 +41,6 @@ def Ej4(n):
   #print(bloques)
   print(long(bloques))
 
-print("\n//-//-//-//-//-//-//-//-//-//-//\nEjercicio 4: \nTest case: 2\nReturn: 1 1 1 3 1 1 1\n")
+print("Ejercicio 4: \nTest case: 2\nReturn: 1 1 1 3 1 1 1\n")
 n = int(input("Ingrese el exponente: "))
 Ej4(n)
