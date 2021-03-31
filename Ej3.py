@@ -3,8 +3,7 @@ def Ej2(k,l,r):
   counter = 0
   for i in range(int(l),int(r)+1):
     for j in range(len(str(i))-1):
-      if not len(set(str(i)[j:j+2])) == 1:#if not str(i)[j:j+1]==str(i)[j+1:j+2]:
-        #print(set(str(i)[j:j+2]), " -> ", i)
+      if not len(set(str(i)[j:j+2])) == 1:
         counter += 1
         if int(k) == counter:
           rta = i
