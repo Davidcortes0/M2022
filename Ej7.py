@@ -1,5 +1,3 @@
-import re
-
 def validate(lista):
     for i in lista:
         try:
@@ -20,9 +18,13 @@ def bubbleSort(lista):
 		for j in range(0, n-i-1):
 			if int(lista[j]) > int(lista[j+1]):
 				lista[j], lista[j+1] = lista[j+1], lista[j]
-	
-monster_force = input("Ingrese la fuerza de los mounstros separados por un espacio: ").split()
-validate(monster_force)
-bubbleSort(monster_force)
-print(mazmorra(monster_force))
+				
+def Ej7(force_list):
+	validate(force_list)
+	bubbleSort(force_list)
+	print("La fuerza maxima del personaje es: " + str(mazmorra(force_list)))
+
+print("Ejercicio 7: \nTest case: 0 2 0 5\nReturn: 3\n")
+monster_force = input("Ingrese la fuerza de cada mounstros separadas por un espacio: ").split()
+Ej7(monster_force)
 
