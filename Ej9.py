@@ -76,13 +76,14 @@ def caminos(n : int, u : int, inicio: int, final : int, dunas : list, oasis : li
 	
 	desierto = crear_desierto(n, dunas, oasis, inicio, final)
 	c_u = u
-	
+	recarga = False
 	for i in range(n-1):
+		if recarga:
+			recarga = False
+			c_u = u
 		for j in range(n-1):
 			casilla = 0
-			if desierto[i][j] == "." or desierto[i][j] == "0" or desierto[i][j] == "o":
-				if desierto[i][j] == "o":
-					c_u = u
+			if desierto[i][j] == "." and c_u != 0:
 				if j == 0:
 					if es_entero(desierto[i-1][j]):
 						casilla += int(desierto[i-1][j])
@@ -101,12 +102,51 @@ def caminos(n : int, u : int, inicio: int, final : int, dunas : list, oasis : li
 					if es_entero(desierto[i-1][j-1]):
 						casilla += int(desierto[i-1][j-1])
 				desierto[i][j] = str(casilla)
-				c_u -= 1
-			if u == 0:
-				desierto[i][j] = 0
+			
+			elif desierto[i][j] == "." and c_u == 0:
+				desierto[i][j] = "u"
 				
-	
-	#imprimir(desierto[::-1])
+			elif desierto[i][j] == "o" and c_u == 0:
+				if j == 0:
+					if es_entero(desierto[i-1][j]):
+						casilla += int(desierto[i-1][j])
+					if es_entero(desierto[i-1][j+1]):
+						casilla += int(desierto[i-1][j+1])
+				elif j == n-2:
+					if es_entero(desierto[i-1][j]):
+						casilla += int(desierto[i-1][j])
+					if es_entero(desierto[i-1][j-1]):
+						casilla += int(desierto[i-1][j-1])
+				else:
+					if es_entero(desierto[i-1][j]):
+						casilla += int(desierto[i-1][j])
+					if es_entero(desierto[i-1][j+1]):
+						casilla += int(desierto[i-1][j+1])
+					if es_entero(desierto[i-1][j-1]):
+						casilla += int(desierto[i-1][j-1])
+				desierto[i][j] = str(casilla)
+				recarga = True
+			elif desierto[i][j] == "0" and i == n-2:
+				if j == 0:
+					if es_entero(desierto[i-1][j]):
+						casilla += int(desierto[i-1][j])
+					if es_entero(desierto[i-1][j+1]):
+						casilla += int(desierto[i-1][j+1])
+				elif j == n-2:
+					if es_entero(desierto[i-1][j]):
+						casilla += int(desierto[i-1][j])
+					if es_entero(desierto[i-1][j-1]):
+						casilla += int(desierto[i-1][j-1])
+				else:
+					if es_entero(desierto[i-1][j]):
+						casilla += int(desierto[i-1][j])
+					if es_entero(desierto[i-1][j+1]):
+						casilla += int(desierto[i-1][j+1])
+					if es_entero(desierto[i-1][j-1]):
+						casilla += int(desierto[i-1][j-1])
+				desierto[i][j] = str(casilla)
+		c_u -= 1
+	imprimir(desierto[::-1])
 	return int(desierto[n-2][inicio])
 
 def Ej9():
